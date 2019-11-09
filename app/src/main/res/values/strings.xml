@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">MovieCatalogue</string>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="dummy_title_movie">Avengers: Infinity War</string>
+    <string name="dummy_release_date">April 27, 2018</string>
+    <string name="dummy_overview_movie">As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy…</string>
+    <string name="alert_failed_load_data">Failed to load data.</string>
+    <string name="label_overview">Overview</string>
+    <string name="label_featured_view">Featured View</string>
+    <string name="dummy_crew_name">Aceng Pilek</string>
+    <string name="dummy_crew_role">Director</string>
+    <string name="title_detail_movie">Detail Movie</string>
+    <string name="label_user_score">User\nScore</string>
+    <string name="dummy_user_score">%1$d \%%</string>
 </resources>
