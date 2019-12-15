@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/zero_measure">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingLeft="@dimen/margin_medium"
+            android:paddingTop="@dimen/margin_medium"
+            android:paddingRight="@dimen/margin_medium"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/margin_extra_big"
+            android:layout_margin="@dimen/margin_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgThumbnail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="@dimen/thumbnail_width"
+                android:layout_height="@dimen/thumbnail_height"
+                app:riv_corner_radius="@dimen/default_corner_radius"
+                android:scaleType="centerCrop"
+                app:riv_mutate_background="true"
+                android:background="@drawable/bg_placeholder" />
+
+            <TextView
+                android:id="@+id/tvTitleMovie"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/text_size_big"
+                tools:text="@string/dummy_title_movie"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgThumbnail"
+                android:layout_width="@dimen/zero_measure"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvReleaseDate"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_normal"
+                tools:text="@string/dummy_release_date"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleMovie"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgThumbnail"
+                android:layout_width="@dimen/zero_measure" />
+
+            <TextView
+                android:id="@+id/tvUserScoreLabel"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_normal"
+                android:text="@string/label_user_score"
+                app:layout_constraintStart_toEndOf="@id/imgThumbnail"
+                app:layout_constraintTop_toTopOf="@id/tvUserScore"
+                app:layout_constraintBottom_toBottomOf="@id/tvUserScore"
+                android:layout_width="@dimen/zero_measure" />
+
+            <TextView
+                android:id="@+id/tvUserScore"
+                android:background="@drawable/bg_circle_default"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_height="@dimen/bg_score_height"
+                android:textSize="@dimen/text_size_normal"
+                tools:text="@string/dummy_user_score"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
+                app:layout_constraintStart_toEndOf="@id/tvUserScoreLabel"
+                android:layout_width="@dimen/bg_score_width" />
+
+            <TextView
+                android:id="@+id/tvOverviewLabel"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:textSize="@dimen/text_size_big"
+                android:text="@string/label_overview"
+                app:layout_constraintTop_toBottomOf="@id/imgThumbnail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="@dimen/zero_measure"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small" />
+
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textSize="@dimen/text_size_normal"
+                tools:text="@string/dummy_overview_movie"
+                app:layout_constraintTop_toBottomOf="@id/tvOverviewLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="@dimen/zero_measure"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small" />
+
+            <TextView
+                android:id="@+id/tvCrewLabel"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:textSize="@dimen/text_size_big"
+                android:text="@string/label_featured_view"
+                app:layout_constraintTop_toBottomOf="@id/tvOverview"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="@dimen/zero_measure"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/containerCrew"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tvCrewLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
