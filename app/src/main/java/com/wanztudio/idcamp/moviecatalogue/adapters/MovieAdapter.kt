@@ -5,61 +5,45 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
 import com.wanztudio.idcamp.moviecatalogue.utils.extension.formatToViewDateDefaults
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.list_item_movie.*
 
-class MovieAdapter(private val context: Context, private val listMovie: List<Movie>) : BaseAdapter() {
+class MovieAdapter(private val context: Context, private val items: List<Movie>) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
-        var view = convertView
-        var viewHolder : ViewHolder?
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder =
+        MovieViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.list_item_movie,
+                parent,
+                false
+            )
+        )
 
-        if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.list_item_movie, parent, false).also {
-                viewHolder = ViewHolder(it)
-                it.tag = viewHolder
-            }
-        }else{
-            viewHolder = view.tag as ViewHolder
-        }
-
-        val movie = listMovie[position]
-        viewHolder?.onBind(movie)
-
-        return view
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.bindItem(items[position])
     }
 
-    override fun getItem(position: Int): Any {
-        return listMovie[position]
-    }
+    override fun getItemCount(): Int = items.size
 
-    override fun getItemId(position: Int): Long {
-        return listMovie[position].id
-    }
+    inner class MovieViewHolder(override val containerView: View) :
+        RecyclerView.ViewHolder(containerView),
+        LayoutContainer {
 
-    override fun getCount(): Int {
-        return listMovie.size
-    }
+        fun bindItem(movie: Movie) {
+                Glide.with(itemView).load(movie.thumbnail).into(imgThumbnail)
 
-    private inner class ViewHolder constructor(private val view: View) {
-        private val imgThumbnail = view.findViewById<RoundedImageView>(R.id.imgThumbnail)
-        private val tvTitleMovie = view.findViewById<TextView>(R.id.tvTitleMovie)
-        private val tvReleaseDate = view.findViewById<TextView>(R.id.tvReleaseDate)
-        private val tvOverview = view.findViewById<TextView>(R.id.tvOverview)
-
-        internal fun onBind(movie: Movie) {
-            Glide.with(view).load(movie.thumbnail).into(imgThumbnail)
-
-            tvTitleMovie.text = movie.title
-            tvReleaseDate.text = movie.releaseDate.formatToViewDateDefaults()
-            tvOverview.text = movie.overview
+                tvTitleMovie.text = movie.title
+                tvReleaseDate.text = movie.releaseDate.formatToViewDateDefaults()
+                tvOverview.text = movie.overview
         }
     }
 }

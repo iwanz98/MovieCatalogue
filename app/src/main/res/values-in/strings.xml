@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Katalog Film</string>
+    <string name="dummy_title_movie">Avengers: Infinity War</string>
+    <string name="dummy_release_date">27 April 2018</string>
+    <string name="dummy_overview_movie">Ketika Avengers dan sekutu mereka terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh satu pahlawan, bahaya baru telah muncul dari bayang-bayang kosmik: Thanos. Seorang lalim dari keburukan intergalaksi ... </string>
+    <string name="alert_failed_load_data">Gagal memuat data.</string>
+    <string name="label_overview">Ikhtisar</string>
+    <string name="label_featured_view">Tampilan Unggulan</string>
+    <string name="dummy_crew_name">Aceng Pilek</string>
+    <string name="dummy_crew_role">Direktur</string>
+    <string name="title_detail_movie">Detail Film</string>
+    <string name="label_user_score">Nilai Pengguna</string>
+    <string name="dummy_user_score">%1$d \%%</string>
+    <string name="action_setting">Pengaturan </string>
+    <string name="title_movie">Film</string>
+    <string name="title_tvshow">Serial TV</string>
+</resources>

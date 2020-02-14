@@ -2,45 +2,75 @@ package com.wanztudio.idcamp.moviecatalogue.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.wanztudio.idcamp.catalogue.adapters.MovieAdapter
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import com.wanztudio.idcamp.moviecatalogue.R
-import com.wanztudio.idcamp.moviecatalogue.models.Movie
-import com.wanztudio.idcamp.moviecatalogue.utils.Constants
-import com.wanztudio.idcamp.moviecatalogue.utils.MovieProvider
+import com.wanztudio.idcamp.moviecatalogue.adapters.ViewPagerAdapter
+import com.wanztudio.idcamp.moviecatalogue.fragments.MovieFragment
+import com.wanztudio.idcamp.moviecatalogue.fragments.TvShowFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.toolbar.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var listMovie : List<Movie>
-    private lateinit var movieAdapter: MovieAdapter
+    private lateinit var pages: List<Fragment>
+    private lateinit var pagerAdapter: ViewPagerAdapter
+
+    private val titles = intArrayOf(
+        R.string.title_movie,
+        R.string.title_tvshow
+    )
+
+    private val tabIcons = arrayListOf(
+        R.drawable.ic_movie,
+        R.drawable.ic_tvshow
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initData()
         initViews()
-    }
-
-    private fun initData(){
-        listMovie = MovieProvider.generateMovies()
-        movieAdapter = MovieAdapter(this, listMovie)
     }
 
     private fun initViews() {
         titleToolbar.text = getString(R.string.app_name)
+        setSupportActionBar(toolbar as Toolbar)
+        supportActionBar?.title = ""
 
-        listView.apply {
-            adapter = movieAdapter
-            setOnItemClickListener { parent, view, position, id ->
-                val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra(Constants.EXTRA_MOVIE, listMovie[position])
-                startActivity(intent)
-            }
+        setUpViewPager()
+        setUpTabs()
+    }
+
+    private fun setUpViewPager() {
+        pages = arrayListOf(MovieFragment.newInstance(), TvShowFragment.newInstance())
+        pagerAdapter = ViewPagerAdapter(this, supportFragmentManager, pages, titles.toList())
+        viewPager.adapter = pagerAdapter
+    }
+
+    private fun setUpTabs(){
+        // set tab icons
+        tabLayout.getTabAt(0)?.setIcon(tabIcons[0])
+        tabLayout.getTabAt(1)?.setIcon(tabIcons[1])
+
+        tabLayout.setupWithViewPager(viewPager)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_setting) {
+            val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(intent)
         }
+        return super.onOptionsItemSelected(item)
     }
 }
