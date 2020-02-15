@@ -3,13 +3,12 @@ package com.wanztudio.idcamp.moviecatalogue.activities
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.android.material.appbar.AppBarLayout
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.models.Crew
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
@@ -18,6 +17,7 @@ import com.wanztudio.idcamp.moviecatalogue.utils.extension.formatToViewDateDefau
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.toolbar
+
 
 class DetailActivity : AppCompatActivity() {
 
@@ -44,6 +44,25 @@ class DetailActivity : AppCompatActivity() {
             setDisplayShowTitleEnabled(false)
         }
 
+        appbarLayout.addOnOffsetChangedListener(object  : AppBarLayout.OnOffsetChangedListener{
+            var isShow = false
+            var scrollRange = -1
+
+            override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.totalScrollRange
+                }
+
+                if (scrollRange + verticalOffset == 0) {
+                    isShow = true
+                    titleToolbar.text = movie?.title
+                } else if (isShow) {
+                    isShow = false
+                    titleToolbar.text = getString(R.string.title_detail_movie)
+                }
+            }
+        })
+
         movie?.let {
             titleToolbar.text = getString(R.string.title_detail_movie)
 
@@ -68,7 +87,7 @@ class DetailActivity : AppCompatActivity() {
         val tvCrewName = view.findViewById<TextView>(R.id.tvCrewName)
         val tvCrewRole = view.findViewById<TextView>(R.id.tvCrewRole)
 
-        tvCrewName.text = "- ${crew.name}"
+        tvCrewName.text = getString(R.string.caption_crew_name, crew.name)
         tvCrewRole.text = crew.role
         return view
     }
