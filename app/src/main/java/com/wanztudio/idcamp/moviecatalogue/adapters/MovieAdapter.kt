@@ -1,15 +1,11 @@
-package com.wanztudio.idcamp.catalogue.adapters
+package com.wanztudio.idcamp.moviecatalogue.adapters
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.makeramen.roundedimageview.RoundedImageView
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
 import com.wanztudio.idcamp.moviecatalogue.utils.extension.formatToViewDateDefaults

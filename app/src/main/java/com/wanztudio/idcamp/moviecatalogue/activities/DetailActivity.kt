@@ -87,7 +87,7 @@ class DetailActivity : AppCompatActivity() {
         val tvCrewName = view.findViewById<TextView>(R.id.tvCrewName)
         val tvCrewRole = view.findViewById<TextView>(R.id.tvCrewRole)
 
-        tvCrewName.text = "- ${crew.name}"
+        tvCrewName.text = getString(R.string.caption_crew_name, crew.name)
         tvCrewRole.text = crew.role
         return view
     }

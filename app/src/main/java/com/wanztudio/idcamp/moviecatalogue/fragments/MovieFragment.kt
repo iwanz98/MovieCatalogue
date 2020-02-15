@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobito.tmmin.utils.OnItemClickListener
 import com.mobito.tmmin.utils.addOnItemClickListener
-import com.wanztudio.idcamp.catalogue.adapters.MovieAdapter
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.activities.DetailActivity
+import com.wanztudio.idcamp.moviecatalogue.adapters.MovieAdapter
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
 import com.wanztudio.idcamp.moviecatalogue.utils.Constants
 import com.wanztudio.idcamp.moviecatalogue.utils.MovieProvider

@@ -10,8 +10,7 @@
     <string name="dummy_crew_name">Aceng Pilek</string>
     <string name="dummy_crew_role">Direktur</string>
     <string name="title_detail_movie">Detail Film</string>
-    <string name="label_user_score">Nilai Pengguna</string>
-    <string name="dummy_user_score">%1$d \%%</string>
+    <string name="label_user_score">Nilai\nPengguna</string>
     <string name="action_setting">Pengaturan </string>
     <string name="title_movie">Film</string>
     <string name="title_tvshow">Serial TV</string>
