@@ -10,5 +10,9 @@
     <string name="dummy_crew_role">Director</string>
     <string name="title_detail_movie">Detail Movie</string>
     <string name="label_user_score">User\nScore</string>
-    <string name="dummy_user_score">%1$d \%%</string>
+    <string name="dummy_user_score" translatable="false">%1$d \%%</string>
+    <string name="action_setting">Setting</string>
+    <string name="title_movie">Movie</string>
+    <string name="title_tvshow">TV Show</string>
+    <string name="caption_crew_name" translatable="false">- %1$s</string>
 </resources>
