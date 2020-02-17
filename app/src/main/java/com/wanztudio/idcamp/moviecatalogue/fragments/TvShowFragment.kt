@@ -43,7 +43,7 @@ class TvShowFragment : Fragment() {
 
     private fun initData() {
         val language = Locale.getDefault().language.toString()
-        listMovie = if (language.contentEquals("en")){
+        listMovie = if (!language.contentEquals("in")){
             MovieProvider.getTvShowsEnglishVersion()
         } else {
             MovieProvider.getTvShowsIndonesianVersion()
