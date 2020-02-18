@@ -3,16 +3,17 @@
     <string name="dummy_title_movie">Avengers: Infinity War</string>
     <string name="dummy_release_date">April 27, 2018</string>
     <string name="dummy_overview_movie">As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy…</string>
-    <string name="alert_failed_load_data">Failed to load data.</string>
+    <string name="alert_failed_get_data">Failed to get data.</string>
     <string name="label_overview">Overview</string>
-    <string name="label_featured_view">Featured View</string>
+    <string name="label_crew">Crew</string>
     <string name="dummy_crew_name">Aceng Pilek</string>
     <string name="dummy_crew_role">Director</string>
     <string name="title_detail_movie">Detail Movie</string>
     <string name="label_user_score">User\nScore</string>
-    <string name="dummy_user_score" translatable="false">%1$d \%%</string>
+    <string name="dummy_user_score" translatable="false">%1$s \%%</string>
     <string name="action_setting">Setting</string>
     <string name="title_movie">Movie</string>
     <string name="title_tvshow">TV Show</string>
     <string name="caption_crew_name" translatable="false">- %1$s</string>
+    <string name="alert_no_internet">No internet connection</string>
 </resources>

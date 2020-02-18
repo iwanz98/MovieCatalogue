@@ -1,4 +1,4 @@
-package com.wanztudio.idcamp.moviecataolgue
+package com.wanztudio.idcamp.moviecatalogue
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

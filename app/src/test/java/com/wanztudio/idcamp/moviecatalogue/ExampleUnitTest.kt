@@ -1,4 +1,4 @@
-package com.wanztudio.idcamp.moviecataolgue
+package com.wanztudio.idcamp.moviecatalogue
 
 import org.junit.Test
 
