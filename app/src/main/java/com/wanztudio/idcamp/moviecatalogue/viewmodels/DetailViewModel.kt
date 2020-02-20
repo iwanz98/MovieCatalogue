@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wanztudio.idcamp.moviecatalogue.models.CreditResponse
-import com.wanztudio.idcamp.moviecatalogue.models.Movie
-import com.wanztudio.idcamp.moviecatalogue.networks.APICallback
-import com.wanztudio.idcamp.moviecatalogue.networks.APIServices
+import com.wanztudio.idcamp.moviecatalogue.network.APICallback
+import com.wanztudio.idcamp.moviecatalogue.network.APIServices
 
 class DetailViewModel : ViewModel() {
 

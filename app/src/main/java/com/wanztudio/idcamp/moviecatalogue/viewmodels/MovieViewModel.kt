@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
-import com.wanztudio.idcamp.moviecatalogue.networks.APICallback
-import com.wanztudio.idcamp.moviecatalogue.networks.APIServices
+import com.wanztudio.idcamp.moviecatalogue.network.APICallback
+import com.wanztudio.idcamp.moviecatalogue.network.APIServices
 
 class MovieViewModel : ViewModel() {
 
@@ -18,12 +18,19 @@ class MovieViewModel : ViewModel() {
 
         APIServices.getMoviesApiCall(movieType, language, object : APICallback<List<Movie>> {
             override fun onSuccess(response : List<Movie>?) {
+                response?.forEach {
+                    it.movieType = movieType
+                }
                 listMovies.postValue(response)
             }
             override fun onError(message: String) {
                 Log.e(TAG, message)
             }
         })
+    }
+
+    fun setFavMovies(movies: List<Movie>) {
+        listMovies.postValue(movies)
     }
 
     fun getListMovies(): LiveData<List<Movie>> = listMovies

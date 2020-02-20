@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
-import com.wanztudio.idcamp.moviecatalogue.networks.APIEndpoints
+import com.wanztudio.idcamp.moviecatalogue.network.APIEndpoints
 import com.wanztudio.idcamp.moviecatalogue.utils.extension.formatToViewDateDefaults
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_item_movie.*

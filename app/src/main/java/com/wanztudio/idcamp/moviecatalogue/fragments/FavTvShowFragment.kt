@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.activities.DetailActivity
 import com.wanztudio.idcamp.moviecatalogue.adapters.MovieAdapter
+import com.wanztudio.idcamp.moviecatalogue.database.AppDatabase
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
 import com.wanztudio.idcamp.moviecatalogue.utils.Constants
 import com.wanztudio.idcamp.moviecatalogue.utils.InternetCheck
@@ -26,7 +27,7 @@ import com.wanztudio.idcamp.moviecatalogue.viewmodels.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
 import java.util.*
 
-class MovieFragment : Fragment() {
+class FavTvShowFragment : Fragment() {
 
     private lateinit var languageRequest: String
     private lateinit var movieAdapter: MovieAdapter
@@ -36,8 +37,8 @@ class MovieFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(): MovieFragment {
-            return MovieFragment()
+        fun newInstance(): FavTvShowFragment {
+            return FavTvShowFragment()
         }
     }
 
@@ -76,35 +77,25 @@ class MovieFragment : Fragment() {
             })
         }.adapter = movieAdapter
 
-        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java).also {
-            it.getListMovies().observe(viewLifecycleOwner, Observer { result ->
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+        movieViewModel.getListMovies().observe(viewLifecycleOwner,
+            Observer<List<Movie>> { result ->
                 result?.let {
                     listMovies = it
                     movieAdapter.updateListMovies(listMovies)
                     progressBar.gone()
+                    if (listMovies.isEmpty()) tvEmptyData.visible() else tvEmptyData.gone()
                 }
             })
-        }
 
         progressBar.visible()
-
-        getMovies()
     }
 
-    private fun getMovies() {
-        InternetCheck(object : InternetCheck.Consumer {
-            override fun accept(isConnected: Boolean?) {
-                isConnected?.let {
-                    if (!it)
-                        Toast.makeText(
-                            requireContext(),
-                            R.string.alert_no_internet,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    else
-                        movieViewModel.requestMovies(Constants.TYPE_MOVIE, languageRequest)
-                }
-            }
-        })
+    private fun loadFavMovies(): List<Movie> =
+        AppDatabase(requireContext()).movieDao().getMoviesByType(Constants.TYPE_TVSERIES)
+
+    override fun onResume() {
+        super.onResume()
+        movieViewModel.setFavMovies(loadFavMovies())
     }
 }
