@@ -1,4 +1,4 @@
-package com.mobito.tmmin.utils
+package com.wanztudio.idcamp.moviecatalogue.utils.extension
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View

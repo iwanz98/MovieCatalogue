@@ -2,7 +2,8 @@ package com.wanztudio.idcamp.moviecatalogue.networks
 
 object APIEndpoints {
 
-    const val BASE_URL="https://api.themoviedb.org/3"
+    private const val BASE_URL="https://api.themoviedb.org/3"
+
     const val THUMBNAIL_URL="https://image.tmdb.org/t/p/w185"
 
     const val ENDPOINT_DISCOVER = "${BASE_URL}/discover/{type}"
