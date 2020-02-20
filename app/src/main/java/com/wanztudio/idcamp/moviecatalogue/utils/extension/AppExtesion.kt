@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 fun String.formatToViewDateDefaults(): String {
-    val input = SimpleDateFormat("dd/MM/yyyy",  Locale.getDefault())
+    val input = SimpleDateFormat("yyyy-MM-dd",  Locale.getDefault())
     val output = SimpleDateFormat("MMMM dd, yyyy",  Locale.getDefault())
     var inputDate : Date? = null
 

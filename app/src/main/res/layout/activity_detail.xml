@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_normal"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="@string/label_featured_view"
+                android:text="@string/label_crew"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/text_size_big"
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,10 +175,24 @@
                 android:id="@+id/containerCrew"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_container_crew"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCrewLabel" />
+
+
+            <ProgressBar
+                app:layout_constraintTop_toTopOf="@id/containerCrew"
+                app:layout_constraintStart_toStartOf="@id/containerCrew"
+                app:layout_constraintEnd_toEndOf="@id/containerCrew"
+                app:layout_constraintBottom_toBottomOf="@id/containerCrew"
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_loading"
+                android:minWidth="@dimen/width_loading" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

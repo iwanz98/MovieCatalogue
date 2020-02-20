@@ -2,8 +2,6 @@
 <resources>
     <dimen name="zero_measure">0dp</dimen>
 
-    <dimen name="text_size_small">10sp</dimen>
-    <dimen name="text_size_medium">12sp</dimen>
     <dimen name="text_size_normal">14sp</dimen>
     <dimen name="text_size_big">16sp</dimen>
     <dimen name="text_size_extra_big">18sp</dimen>
@@ -21,4 +19,9 @@
     <dimen name="bg_score_height">50dp</dimen>
     <dimen name="margin_extra_big">40dp</dimen>
     <dimen name="margin_header_thumbnail">72dp</dimen>
+    <dimen name="height_loading">50dp</dimen>
+    <dimen name="width_loading">50dp</dimen>
+    <dimen name="width_splash_logo">150dp</dimen>
+    <dimen name="height_splash_logo">150dp</dimen>
+    <dimen name="height_container_crew">150dp</dimen>
 </resources>
