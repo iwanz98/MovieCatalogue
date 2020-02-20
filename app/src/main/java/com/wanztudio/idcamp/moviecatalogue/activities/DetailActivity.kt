@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.wanztudio.idcamp.moviecatalogue.R
@@ -92,7 +92,7 @@ class DetailActivity : AppCompatActivity() {
             tvOverview.text = it.overview
         }
 
-        detailViewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailViewModel.requestMovies(movie?.id.toString(), languageRequest)
         detailViewModel.getCreditResponse().observe(this,
             Observer<CreditResponse> {
