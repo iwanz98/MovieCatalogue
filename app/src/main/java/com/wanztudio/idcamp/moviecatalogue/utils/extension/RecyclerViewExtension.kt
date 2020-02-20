@@ -1,7 +1,7 @@
-package com.mobito.tmmin.utils
+package com.wanztudio.idcamp.moviecatalogue.utils.extension
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 interface OnItemClickListener {
     fun onItemClicked(position: Int, view: View)
