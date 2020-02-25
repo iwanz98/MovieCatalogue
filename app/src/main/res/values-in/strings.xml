@@ -14,5 +14,12 @@
     <string name="action_setting">Pengaturan </string>
     <string name="title_movie">Film</string>
     <string name="title_tvshow">Serial TV</string>
+    <string name="title_fav_movie">Film Favorit</string>
+    <string name="title_fav_tvshow">Serial TV Favorit</string>
     <string name="alert_no_internet">Tidak ada koneksi jaringan</string>
+    <string name="title_favorite">Favorit</string>
+    <string name="info_add_favorite">Ditambahkan ke favorit</string>
+    <string name="info_remove_favorite">Dihapus dari favorit</string>
+    <string name="action_favorite">Tambahkan ke favorit</string>
+    <string name="alert_empty_data">Data tidak ditemukan</string>
 </resources>

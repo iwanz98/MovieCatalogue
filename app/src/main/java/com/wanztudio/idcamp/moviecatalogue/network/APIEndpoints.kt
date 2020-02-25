@@ -1,4 +1,4 @@
-package com.wanztudio.idcamp.moviecatalogue.networks
+package com.wanztudio.idcamp.moviecatalogue.network
 
 object APIEndpoints {
 
