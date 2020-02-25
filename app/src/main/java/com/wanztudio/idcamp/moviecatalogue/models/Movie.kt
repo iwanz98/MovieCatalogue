@@ -1,34 +1,21 @@
 package com.wanztudio.idcamp.moviecatalogue.models
 
-
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+@Entity
 @Parcelize
 data class Movie(
-    @SerializedName("popularity")
-    val popularity: Double,
-    @SerializedName("vote_count")
-    val voteCount: Int,
-    @SerializedName("first_air_date")
-    val firstAirDate: String?,
-    @SerializedName("video")
-    val video: Boolean,
-    @SerializedName("poster_path")
-    val posterPath: String,
+    @PrimaryKey
     @SerializedName("id")
     val id: Int,
-    @SerializedName("adult")
-    val adult: Boolean,
-    @SerializedName("backdrop_path")
-    val backdropPath: String,
-    @SerializedName("original_language")
-    val originalLanguage: String,
-    @SerializedName("original_title")
-    val originalTitle: String?,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>,
+    @SerializedName("first_air_date")
+    val firstAirDate: String?,
+    @SerializedName("poster_path")
+    val posterPath: String,
     @SerializedName("title")
     val title: String?,
     @SerializedName("original_name")
@@ -38,5 +25,6 @@ data class Movie(
     @SerializedName("overview")
     val overview: String,
     @SerializedName("release_date")
-    val releaseDate: String?
+    val releaseDate: String?,
+    var movieType : String
 ) : Parcelable

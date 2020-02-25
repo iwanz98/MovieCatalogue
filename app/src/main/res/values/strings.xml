@@ -14,7 +14,14 @@
     <string name="action_setting">Setting</string>
     <string name="title_movie">Movie</string>
     <string name="title_tvshow">TV Show</string>
+    <string name="title_fav_movie">Favorite Movie</string>
+    <string name="title_fav_tvshow">Favorite TV Show</string>
     <string name="caption_crew_name" translatable="false">- %1$s</string>
     <string name="alert_no_internet">No internet connection</string>
     <string name="logo_splash_description" translatable="false">logo_splash</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="info_add_favorite">Added to favorites</string>
+    <string name="info_remove_favorite">Removed from favorites</string>
+    <string name="action_favorite">Add to favorite</string>
+    <string name="alert_empty_data">Data not found</string>
 </resources>

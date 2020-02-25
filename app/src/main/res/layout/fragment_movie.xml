@@ -17,4 +17,16 @@
         android:id="@+id/rvMovie"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tvEmptyData"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/white"
+        android:text="@string/alert_empty_data"
+        android:textSize="@dimen/text_size_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </FrameLayout>

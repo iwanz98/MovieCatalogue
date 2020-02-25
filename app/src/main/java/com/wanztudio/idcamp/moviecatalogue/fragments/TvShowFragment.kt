@@ -30,7 +30,7 @@ class TvShowFragment : Fragment() {
 
     private lateinit var languageRequest: String
     private lateinit var movieAdapter: MovieAdapter
-    private lateinit var  movieViewModel : MovieViewModel
+    private lateinit var movieViewModel: MovieViewModel
 
     private var listMovies = listOf<Movie>()
 
@@ -75,27 +75,31 @@ class TvShowFragment : Fragment() {
             })
         }.adapter = movieAdapter
 
-        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
-        movieViewModel.getListMovies().observe(viewLifecycleOwner,
-            Observer<List<Movie>> { result ->
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java).also {
+            it.getListMovies().observe(viewLifecycleOwner, Observer { result ->
                 result?.let {
                     listMovies = it
                     movieAdapter.updateListMovies(listMovies)
                     progressBar.gone()
                 }
             })
+        }
 
         progressBar.visible()
 
         getMovies()
     }
 
-    private fun getMovies(){
+    private fun getMovies() {
         InternetCheck(object : InternetCheck.Consumer {
-            override fun accept(isConnected : Boolean?) {
+            override fun accept(isConnected: Boolean?) {
                 isConnected?.let {
                     if (!it)
-                        Toast.makeText(requireContext(), R.string.alert_no_internet, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.alert_no_internet,
+                            Toast.LENGTH_SHORT
+                        ).show()
                     else
                         movieViewModel.requestMovies(Constants.TYPE_TVSERIES, languageRequest)
                 }

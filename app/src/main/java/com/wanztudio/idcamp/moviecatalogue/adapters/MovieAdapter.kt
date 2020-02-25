@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wanztudio.idcamp.moviecatalogue.R
 import com.wanztudio.idcamp.moviecatalogue.models.Movie
-import com.wanztudio.idcamp.moviecatalogue.networks.APIEndpoints
+import com.wanztudio.idcamp.moviecatalogue.network.APIEndpoints
 import com.wanztudio.idcamp.moviecatalogue.utils.extension.formatToViewDateDefaults
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_item_movie.*
@@ -43,6 +43,8 @@ class MovieAdapter(private val context: Context, private var items: List<Movie>)
         fun bindItem(movie: Movie) {
                 Glide.with(itemView)
                     .load(APIEndpoints.THUMBNAIL_URL + movie.posterPath)
+                    .placeholder(R.drawable.bg_placeholder)
+                    .error(R.drawable.bg_placeholder)
                     .into(imgThumbnail)
 
                 tvTitleMovie.text = if (!movie.title.isNullOrBlank()) movie.title else movie.originalName
