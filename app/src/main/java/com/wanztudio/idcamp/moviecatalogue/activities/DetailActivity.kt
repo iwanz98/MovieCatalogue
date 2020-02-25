@@ -41,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
     private var isFavorite: Boolean = false
     private var movie: Movie? = null
 
-    lateinit var database: AppDatabase
+    private lateinit var database: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,7 +102,11 @@ class DetailActivity : AppCompatActivity() {
         movie?.let {
             titleToolbar.text = getString(R.string.title_detail_movie)
 
-            Glide.with(this).load(APIEndpoints.THUMBNAIL_URL + it.posterPath).into(imgThumbnail)
+            Glide.with(this)
+                .load(APIEndpoints.THUMBNAIL_URL + it.posterPath)
+                .placeholder(R.drawable.bg_placeholder)
+                .error(R.drawable.bg_placeholder)
+                .into(imgThumbnail)
 
             tvTitleMovie.text = if (!it.title.isNullOrBlank()) it.title else it.originalName
             tvReleaseDate.text = if (it.releaseDate != null) {

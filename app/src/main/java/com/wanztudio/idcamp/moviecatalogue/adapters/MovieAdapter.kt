@@ -43,6 +43,8 @@ class MovieAdapter(private val context: Context, private var items: List<Movie>)
         fun bindItem(movie: Movie) {
                 Glide.with(itemView)
                     .load(APIEndpoints.THUMBNAIL_URL + movie.posterPath)
+                    .placeholder(R.drawable.bg_placeholder)
+                    .error(R.drawable.bg_placeholder)
                     .into(imgThumbnail)
 
                 tvTitleMovie.text = if (!movie.title.isNullOrBlank()) movie.title else movie.originalName

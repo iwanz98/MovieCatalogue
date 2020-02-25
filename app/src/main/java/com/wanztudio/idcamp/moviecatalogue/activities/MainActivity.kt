@@ -26,6 +26,12 @@ class MainActivity : AppCompatActivity() {
 
     private var prevMenuItem: MenuItem? = null
 
+    companion object {
+        private const val TAB_MOVIE = 0
+        private const val TAB_TVSERIES = 1
+        private const val TAB_FAVORITE = 2
+    }
+
     private val titles = intArrayOf(
         R.string.title_movie,
         R.string.title_tvshow,
@@ -103,15 +109,15 @@ class MainActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_movie -> {
-                    viewPager.setCurrentItem(0, true)
+                    viewPager.setCurrentItem(TAB_MOVIE, true)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.action_team -> {
-                    viewPager.setCurrentItem(1, true)
+                R.id.action_tvseries -> {
+                    viewPager.setCurrentItem(TAB_TVSERIES, true)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.action_favorite -> {
-                    viewPager.setCurrentItem(2, true)
+                    viewPager.setCurrentItem(TAB_FAVORITE, true)
                     return@OnNavigationItemSelectedListener true
                 }
             }
